@@ -9,4 +9,4 @@ venv/
 *.docx
 =======
 .env
-
+.Kubernets/secrets.yaml
