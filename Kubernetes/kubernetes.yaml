@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: career-app
+  name: MuseCareer
   labels:
-    name: career-app
+    name: MuseCareer
     purpose: capstone-project
