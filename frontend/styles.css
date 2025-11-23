@@ -33,7 +33,10 @@ body{
   color:var(--accent);
   letter-spacing:0.2px;
 }
-.tagline{ margin:6px 0 0; color:#666; }
+.tagline{ 
+    margin:6px 0 0;
+    color:#666; 
+}
 
 .card{
   background:var(--card);
@@ -44,7 +47,14 @@ body{
   border:1px solid #eee;
 }
 
-label{ display:block; margin:10px 0 6px; font-weight:600; color:#333; font-size:0.95rem; }
+label{ 
+    display:block; 
+    margin:10px 0 6px; 
+    font-weight:600; 
+    color:#333; 
+    font-size:0.95rem; 
+}
+
 textarea, input[type="file"]{
   width:100%;
   padding:10px 12px;
@@ -53,10 +63,20 @@ textarea, input[type="file"]{
   font-size:0.95rem;
   outline:none;
 }
-textarea:focus, input[type="file"]:focus{ box-shadow:0 0 0 3px rgba(93,113,224,0.08); border-color:var(--primary); }
+textarea:focus, input[type="file"]:focus{ 
+    box-shadow:0 0 0 3px rgba(93,113,224,0.08); 
+    border-color:var(--primary); 
+}
 
-.row{ display:flex; gap:12px; align-items:center; }
-.between{ justify-content:space-between; margin-top:12px; }
+.row{ 
+    display:flex; 
+    gap:12px; 
+    align-items:center; 
+}
+.between{ 
+    justify-content:space-between; 
+    margin-top:12px; 
+}
 
 .btn{
   padding:9px 16px;
@@ -65,5 +85,55 @@ textarea:focus, input[type="file"]:focus{ box-shadow:0 0 0 3px rgba(93,113,224,0
   font-weight:600;
   cursor:pointer;
 }
-.btn.ghost{ background:transparent; border:1px solid #ddd; color:#333; }
-.btn.primary{ background:var(--primary); color:#fff; box-shadow:0 8px 24px rgba(93,113,224,0.14); }
+.btn.ghost{ 
+    background:transparent; 
+    border:1px solid #ddd; 
+    color:#333; }
+.btn.primary{ 
+    background:var(--primary); 
+    color:#fff; 
+    box-shadow:0 8px 24px rgba(93,113,224,0.14); 
+}
+
+.results pre.summary{
+  white-space:pre-wrap;
+  background:#fbfbfb;
+  padding:12px;
+  border-radius:8px;
+  border:1px solid #f0f0f0;
+  max-height:180px; overflow:auto;
+}
+
+.carousel{ 
+    margin-top:14px; 
+}
+.carousel-header{ 
+    display:flex; 
+    justify-content:space-between; 
+    align-items:center; 
+    margin-bottom:10px; 
+}
+
+.rec-content{
+  min-height:120px;
+  padding:12px;
+  border-radius:8px;
+  border:1px dashed #eee;
+  background:#fff;
+  white-space:pre-wrap;
+  line-height:1.5;
+}
+.carousel-actions{ 
+    text-align:right; 
+    margin-top:12px; 
+}
+
+.hidden{ 
+    display:none; 
+}
+
+.footer{ 
+    text-align:center; 
+    color:var(--muted); 
+    margin-top:80px; 
+}
