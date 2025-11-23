@@ -5,6 +5,9 @@ const BACKEND_ENDPOINT = "https://your-backend.example.com/prod"; // placeholder
 const LLM_GEMINI_ENDPOINT = "https://generativelanguage.googleapis.com/v1beta/models/YOUR_MODEL:generateContent"; // optional
 const GEMINI_API_KEY = ""; // to call the Google Generative API directly
 
+const BACKEND_ENDPOINT = "http://localhost:3000/prod";
+
+// DOM
 const additionalInput = document.getElementById("additionalInfo");
 const cvFileInput = document.getElementById("cvFile");
 const submitBtn = document.getElementById("submitBtn");
@@ -17,6 +20,7 @@ const recContent = document.getElementById("recContent");
 const pageCounter = document.getElementById("pageCounter");
 const nextRecBtn = document.getElementById("nextRec");
 
+// state
 let recommendations = [];
 let currentIndex = 0;
 let latestSummary = null;
@@ -24,6 +28,7 @@ let latestSummary = null;
 function showAlertLocal(msg, type="info"){
 
   summaryBox.textContent = `${msg}`;
+  summaryBox.textContent = msg;
   resultsSection.classList.remove("hidden");
 }
 
