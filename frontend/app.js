@@ -1,3 +1,10 @@
+// app.js
+// Small local runtime that mirrors your Appsmith flow:
+//  - read CV file (text), take additional info, POST to analysis endpoint
+//  - show summary and 4 recommendations in a carousel with Next
+//  - Reset clears fields and results
+//
+
 const BACKEND_ENDPOINT = "https://your-backend.example.com/prod"; 
 const LLM_GEMINI_ENDPOINT = "https://generativelanguage.googleapis.com/v1beta/models/YOUR_MODEL:generateContent"; // optional
 const GEMINI_API_KEY = ""; 
@@ -47,6 +54,9 @@ async function readFileAsBase64(file){
 }
 
 async function callBackendForAnalysis({ fileDataUrl, fileType, extraText }){
+  // This mirrors the Appsmith Api2 / Gemini usage in MuseCareer.json.
+  // The backend should accept a multipart JSON body or the LLM request shape.
+  // We'll send a JSON payload. Adapt to your real backend.
   const body = {
     contents: [
       { parts: [
@@ -59,7 +69,7 @@ async function callBackendForAnalysis({ fileDataUrl, fileType, extraText }){
     }
   };
 
-  const url = BACKEND_ENDPOINT;
+  const url = BACKEND_ENDPOINT; 
   const resp = await fetch(url, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -118,7 +128,7 @@ submitBtn.addEventListener("click", async () => {
 
     let payload = result;
     if (typeof result === "string") {
-      try { payload = JSON.parse(result); } catch(e){  }
+      try { payload = JSON.parse(result); } catch(e){ /* keep as string */ }
     }
     if (!payload || !payload.recommendations) {
       if (payload.body && payload.body.recommendations) payload = payload.body;
