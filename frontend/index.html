@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MuseCareer</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <header class="header">
+      <h1>MuseCareer</h1>
+      <p class="tagline">Your future, reimagined.</p>
+    </header>
+
+    <form id="museForm" class="card" autocomplete="off">
+      <label for="additionalInfo">Additional information (e.g., upskilling, enrollments, interests)</label>
+      <textarea id="additionalInfo" rows="4" placeholder="e.g. learning Docker, enrolled in ALX Data Science..."></textarea>
+
+      <label for="cvFile">Upload CV</label>
+      <input id="cvFile" type="file" accept=".txt,.pdf,.doc,.docx" />
+
+      <div class="row between">
+        <div class="left">
+          <button type="button" id="resetBtn" class="btn ghost">Reset</button>
+        </div>
+        <div class="right">
+          <button type="button" id="submitBtn" class="btn primary">Submit</button>
+        </div>
+      </div>
+    </form>
+
+    <section id="results" class="card results hidden">
+      <h2 id="summaryTitle">Analysis</h2>
+      <pre id="summaryBox" class="summary">No results yet. Submit your CV to begin.</pre>
+
+      <div id="carousel" class="carousel hidden">
+        <div class="carousel-header">
+          <h3 id="recTitle">Your future awaits...</h3>
+          <div id="pageCounter">0 / 0</div>
+        </div>
+        <div id="recContent" class="rec-content">—</div>
+        <div class="carousel-actions">
+          <button id="nextRec" class="btn primary">Next</button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <small>Local dev version — replace endpoints & keys in <code>app.js</code>.</small>
+    </footer>
+  </main>
+
+  <script src="app.js" type="module"></script>
+</body>
+</html>
