@@ -1,7 +1,6 @@
 version: "3.8"
 
 services:
-  # For development we mount backend code and run nodemon (requires nodemon in devDeps)
   backend:
     volumes:
       - ./backend:/app:rw
@@ -11,7 +10,6 @@ services:
     ports:
       - "8080:8080"
 
-  # For frontend dev: use node 'serve' to serve static files and mount the local folder for edits
   frontend:
     image: node:20-alpine
     volumes:

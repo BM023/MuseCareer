@@ -1,4 +1,3 @@
-// server.js
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
@@ -7,9 +6,8 @@ const { callGemini } = require('./gem-api');
 
 const app = express();
 app.use(cors());
-app.use(express.json({ limit: '10mb' })); // allow large base64 payloads
+app.use(express.json({ limit: '10mb' }));
 
-// Prompt template for the CV analyzer
 const JSON_PROMPT_SUFFIX = `
 IMPORTANT: Respond with a single VALID JSON object ONLY (no extra commentary).
 The JSON object must match this schema:
@@ -48,7 +46,6 @@ ${JSON_PROMPT_SUFFIX}
 
 app.get('/health', (req, res) => res.json({ ok: true }));
 
-// POST /prod
 app.post('/prod', async (req, res) => {
   try {
     const body = req.body;
@@ -73,13 +70,10 @@ app.post('/prod', async (req, res) => {
       }
     }
 
-    // Build prompt using JSON template
     const prompt = buildPrompt(fileText, extraPromptText);
 
-    // Call Gemini API
     const { text: modelText } = await callGemini(prompt);
 
-    // Parse JSON from model response
     let parsed = null;
     try {
       const firstBrace = modelText.indexOf('{');
