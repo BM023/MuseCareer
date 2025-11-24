@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: docker.io/boikanyomz/musecareer-backend:b05c278
+        image: docker.io/boikanyomz/musecareer-backend:3fa39e9
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080

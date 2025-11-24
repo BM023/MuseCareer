@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: docker.io/boikanyomz/musecareer-frontend:b05c278
+        image: docker.io/boikanyomz/musecareer-frontend:3fa39e9
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80
