@@ -1,37 +1,44 @@
-const { GoogleAuth } = require('google-auth-library');
+const axios = require("axios");
 
-const GEMINI_MODEL = 'models/gemini-1.5'; // or your preferred model
-const BASE_URL = 'https://generativelanguage.googleapis.com/v1beta/';
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 
-async function callGemini(prompt, temperature = 0.2) {
-  const auth = new GoogleAuth({
-    scopes: 'https://www.googleapis.com/auth/cloud-platform'
-  });
-  const client = await auth.getClient();
-  const accessToken = await client.getAccessToken();
+if (!GEMINI_API_KEY) {
+  console.error("Missing GEMINI_API_KEY in .env");
+  process.exit(1);
+}
 
-  const res = await fetch(`${BASE_URL}${GEMINI_MODEL}:generateContent`, {
-    method: 'POST',
-    headers: {
-      'Authorization': `Bearer ${accessToken.token || accessToken}`,
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      prompt: { text: prompt },
-      temperature,
-      maxOutputTokens: 1024
-    })
-  });
+const GEMINI_API_URL =
+  `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`;
 
-  if (!res.ok) {
-    const text = await res.text();
-    throw new Error(`LLM request failed ${res.status}: ${text}`);
+async function callGemini(prompt) {
+  const payload = {
+    contents: [
+      {
+        parts: [{ text: prompt }]
+      }
+    ],
+    generationConfig: {
+      temperature: 0.4,
+      topK: 40,
+      topP: 0.9,
+      maxOutputTokens: 2048
+    }
+  };
+
+  try {
+    const response = await axios.post(GEMINI_API_URL, payload, {
+      headers: { "Content-Type": "application/json" }
+    });
+
+    const text =
+      response.data?.candidates?.[0]?.content?.parts?.[0]?.text || "";
+
+    return { text };
+
+  } catch (err) {
+    console.error("Gemini API error:", err.response?.data || err.message);
+    throw new Error(err.response?.data?.error ?? "Gemini API call failed");
   }
-
-  const json = await res.json();
-  const text = json.candidates?.[0]?.content?.[0]?.text || json.outputText || JSON.stringify(json);
-
-  return { raw: json, text };
 }
 
 module.exports = { callGemini };
