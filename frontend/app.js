@@ -166,6 +166,12 @@ document.addEventListener("DOMContentLoaded", () => {
     if (recContent) recContent.textContent = contentToDisplay; 
     if (pageCounter) pageCounter.textContent = `${currentIndex + 1} / ${recommendations.length}`;
   }
+  
+   nextRecBtn?.addEventListener("click", () => {
+    if (!recommendations.length) return;
+    currentIndex = (currentIndex + 1) % recommendations.length;
+    renderRecommendations();
+  });
 
   resetBtn.addEventListener("click", () => {
     resetAll();
