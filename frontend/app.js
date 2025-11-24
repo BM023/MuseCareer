@@ -153,17 +153,18 @@ document.addEventListener("DOMContentLoaded", () => {
     if (resultsSection) resultsSection.classList.remove("hidden");
 
     const current = recommendations[currentIndex] || {};
-    if (recTitle) recTitle.textContent = current.title || `Recommendation ${currentIndex + 1}`;
-    if (recContent) recContent.textContent = current.page_content || "(no content)";
-    if (pageCounter) pageCounter.textContent = `${currentIndex + 1} / ${recommendations.length}`;
-  }
+    let contentToDisplay = current.page_content || "(no content)";
 
-  if (nextRecBtn) {
-    nextRecBtn.addEventListener("click", () => {
-      if (recommendations.length === 0) return;
-      currentIndex = (currentIndex + 1) % recommendations.length;
-      renderRecommendations();
-    });
+    if (contentToDisplay) {
+        let cleanText = contentToDisplay.replace(/\*\*/g, '');
+        let finalCleanText = cleanText.replace(/\*\s\s+/g, '* ');
+        
+        contentToDisplay = finalCleanText;
+    }
+ 
+    if (recTitle) recTitle.textContent = current.title || `Recommendation ${currentIndex + 1}`;
+    if (recContent) recContent.textContent = contentToDisplay; 
+    if (pageCounter) pageCounter.textContent = `${currentIndex + 1} / ${recommendations.length}`;
   }
 
   resetBtn.addEventListener("click", () => {
