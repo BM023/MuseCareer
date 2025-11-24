@@ -10,3 +10,4 @@ venv/
 =======
 .env
 .Kubernets/secrets.yaml
+musecareer-key.json

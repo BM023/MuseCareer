@@ -1,6 +1,6 @@
 :root{
   --bg: #f7f6f4;
-  --card: #ffffff;
+  --card: #e9e1d4;
   --accent: #ff8788;
   --primary: #5d71e0;
   --muted: #7d7d7d;
@@ -12,7 +12,7 @@
 *{box-sizing:border-box}
 body{
   margin:0;
-  background: linear-gradient(180deg,#fff 0%, var(--bg) 100%);
+  background: #fff7eb;
   min-height:100vh;
   color:#222;
   display:flex;
@@ -21,7 +21,8 @@ body{
   padding:28px;
 }
 
-.container{ width:100%; max-width:920px; }
+.container{ width:100%; 
+  max-width:920px; }
 
 .header{
   text-align:center;
@@ -35,7 +36,8 @@ body{
 }
 .tagline{ 
     margin:6px 0 0;
-    color:#666; 
+    color:#e65f7d; 
+    font-size: 18px;
 }
 
 .card{
@@ -55,7 +57,7 @@ label{
     font-size:0.95rem; 
 }
 
-textarea, input[type="file"]{
+textarea{
   width:100%;
   padding:10px 12px;
   border-radius:8px;
@@ -63,6 +65,16 @@ textarea, input[type="file"]{
   font-size:0.95rem;
   outline:none;
 }
+
+input[type="file"]{
+  width:100%;
+  padding:10px 12px;
+  border-radius:8px;
+  border:1px solid #ff8788;
+  font-size:0.95rem;
+  outline:none;
+}
+
 textarea:focus, input[type="file"]:focus{ 
     box-shadow:0 0 0 3px rgba(93,113,224,0.08); 
     border-color:var(--primary); 
@@ -86,9 +98,9 @@ textarea:focus, input[type="file"]:focus{
   cursor:pointer;
 }
 .btn.ghost{ 
-    background:transparent; 
+    background: #5d71e0; 
     border:1px solid #ddd; 
-    color:#333; }
+    color:#fff; }
 .btn.primary{ 
     background:var(--primary); 
     color:#fff; 

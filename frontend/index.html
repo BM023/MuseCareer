@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>MuseCareer</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
 </head>
 <body>
   <main class="container">
@@ -19,6 +20,9 @@
 
       <label for="cvFile">Upload CV</label>
       <input id="cvFile" type="file" accept=".txt,.pdf,.doc,.docx" />
+      
+      <label for="additionalInfo">Additional information (e.g., upskilling, enrollments, interests)</label>
+      <textarea id="additionalInfo" rows="4" placeholder="e.g. learning Docker, enrolled in ALX Data Science..."></textarea>
 
       <div class="row between">
         <div class="left">
