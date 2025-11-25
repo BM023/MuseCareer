@@ -80,6 +80,13 @@ textarea:focus, input[type="file"]:focus{
     border-color:var(--primary); 
 }
 
+.file-format{
+font-size: 12px;
+font-weight: 400;
+margin-top: 5px;
+margin-bottom: 30px;
+}
+
 .row{ 
     display:flex; 
     gap:12px; 
