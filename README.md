@@ -4,7 +4,7 @@
 MuseCareer is an AI-driven career guidance platform that analyzes a user’s CV, skills, qualifications, and interests to generate personalized career recommendations. By integrating a Node.js backend with the Gemini API and deploying the fully containerized system with Docker and Kubernetes, MuseCareer delivers intelligent, actionable insights for job seekers, graduates, and early-career professionals.
 
 ## 📷 Preview
-<img width="1340" height="591" alt="WhatsApp Image 2025-11-25 at 08.44.29 (1)" src="/mnt/data/WhatsApp%20Image%202025-11-25%20at%2008.44.29%20(1).jpeg" />
+<img width="1340" height="591" alt="WhatsApp Image 2025-11-25 at 08.44.29 (1)" src="frontend/WhatsApp Image 2025-11-25 at 08.44.29 (1).jpeg" />
 
 ## 💡 Why We Created MuseMind
 
